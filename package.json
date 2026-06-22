@@ -1,6 +1,7 @@
 {
   "name": "lyne-web",
   "version": "0.1.0",
+  "description": "Marketing website for lyne. — Delhi Metro navigation app. Built with Next.js 16, Tailwind CSS v4, and Framer Motion.",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -16,6 +17,7 @@
     "react-dom": "19.2.4"
   },
   "devDependencies": {
+    "@playwright/test": "^1.61.0",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",

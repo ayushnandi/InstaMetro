@@ -1,36 +1,93 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# lyne. — Delhi Metro App
 
-## Getting Started
+Marketing website for **lyne.**, a Delhi Metro navigation app built with Expo and React Native.
 
-First, run the development server:
+---
+
+## What is lyne.
+
+lyne. is a clean, offline-capable Delhi Metro app covering all 303 stations across 10 lines. It offers step-by-step route planning, fare calculation, digital QR tickets, a live journey map, and platform direction guidance in Hindi and English.
+
+The app is unofficial and not affiliated with DMRC.
+
+---
+
+## This repository
+
+This is the Next.js marketing website for lyne. Built with:
+
+- **Next.js 16** (App Router, Turbopack)
+- **Tailwind CSS v4**
+- **Framer Motion** for scroll-driven and entry animations
+- **next-themes** for light/dark mode
+- **DM Sans + DM Mono** (Google Fonts)
+
+---
+
+## Pages
+
+| Route | Description |
+|---|---|
+| `/` | Landing page with hero, features, network map, tech stack, testimonials |
+| `/privacy-policy` | Full privacy policy |
+| `/terms-of-use` | Terms of use |
+| `/contact` | Contact and support with FAQ |
+
+---
+
+## Getting started
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm run build       # production build
+npm run start       # serve production build locally
+npx tsc --noEmit    # type-check only
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## Project structure
 
-To learn more about Next.js, take a look at the following resources:
+```
+src/
+  app/                    # Next.js App Router pages
+    page.tsx              # Home / landing page
+    privacy-policy/       # Privacy policy page
+    terms-of-use/         # Terms of use page
+    contact/              # Contact and support page
+    layout.tsx            # Root layout (fonts, metadata, theme)
+    globals.css           # Tailwind v4 + design tokens
+  components/
+    layout/               # Nav, Footer
+    sections/             # Hero, About, Features, NetworkMap, TechStack, Integrations, Testimonials, CTA
+    phone/                # Phone shell + screen mockups (ScreenHome, ScreenLive, ScreenTicket)
+    ui/                   # AnimatedSection, StoreBadge, ThemeToggle, NetworkSVG
+  lib/
+    tokens.ts             # Design tokens (colors, layout constants)
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Design system
 
-## Deploy on Vercel
+All colors and typography come from CSS variables in `globals.css`. Theme tokens under `:root` (light) and `.dark` (dark). No hardcoded hex values in component files.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Key tokens: `--bg`, `--surface1/2/3`, `--text`, `--text-dim`, `--text-mute`, `--accent`, `--money`, `--amber-c`, `--hairline`.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+## Mobile app
+
+The React Native app lives at [https://github.com/ayushnandi/lyne](https://github.com/ayushnandi/lyne).
+
+---
+
+## Author
+
+Built by Ayush Nandi. Not affiliated with DMRC.
