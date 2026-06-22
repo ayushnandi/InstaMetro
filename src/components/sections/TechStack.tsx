@@ -45,7 +45,7 @@ const GROUPS = [
 export default function TechStack() {
   return (
     <section id="stack" style={{ background: 'var(--bg2)', borderTop: '1px solid var(--hairline)', borderBottom: '1px solid var(--hairline)' }}>
-      <div className={WRAP} style={{ padding: '90px 28px' }}>
+      <div className={`${WRAP} py-[60px] lg:py-[90px]`} style={{ paddingLeft: 28, paddingRight: 28 }}>
         <AnimatedSection className="mb-12" style={{ maxWidth: 620 }}>
           <Eyebrow color="var(--amber-c)">Under the hood</Eyebrow>
           <SectionTitle className="mb-4">A stack built for real-time, at scale.</SectionTitle>
@@ -54,7 +54,7 @@ export default function TechStack() {
           </p>
         </AnimatedSection>
 
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 16 }}>
+        <div className="grid grid-cols-2 lg:grid-cols-4" style={{ gap: 16 }}>
           {GROUPS.map((g, gi) => (
             <AnimatedSection key={g.label} delay={gi * 0.06}>
               <div style={{ background: 'var(--surface1)', borderRadius: 20, border: '1px solid var(--hairline)', padding: 22 }}>

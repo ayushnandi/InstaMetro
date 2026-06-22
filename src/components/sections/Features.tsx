@@ -45,13 +45,13 @@ const FEATURES = [
 export default function Features() {
   return (
     <section id="features" style={{ background: 'var(--bg2)', borderTop: '1px solid var(--hairline)', borderBottom: '1px solid var(--hairline)' }}>
-      <div className={WRAP} style={{ padding: '90px 28px' }}>
+      <div className={`${WRAP} py-[60px] lg:py-[90px]`} style={{ paddingLeft: 28, paddingRight: 28 }}>
         <AnimatedSection className="mb-12 max-w-[600px]">
           <Eyebrow color="var(--money)">Functionalities</Eyebrow>
           <SectionTitle>Everything a rider needs, and nothing they don&apos;t.</SectionTitle>
         </AnimatedSection>
 
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 16 }}>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3" style={{ gap: 16 }}>
           {FEATURES.map((f, i) => (
             <AnimatedSection key={f.title} delay={i * 0.05}>
               <div style={{ background: 'var(--surface1)', borderRadius: 20, padding: 26, border: '1px solid var(--hairline)', height: '100%' }}>

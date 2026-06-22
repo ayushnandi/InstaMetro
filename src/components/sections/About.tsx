@@ -13,8 +13,8 @@ const STATS = [
 export default function About() {
   return (
     <section id="about" style={{ background: 'var(--bg)' }}>
-      <div className={WRAP} style={{ padding: '90px 28px' }}>
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 56, alignItems: 'start' }}>
+      <div className={`${WRAP} py-[60px] lg:py-[90px]`} style={{ paddingLeft: 28, paddingRight: 28 }}>
+        <div className="grid grid-cols-1 md:grid-cols-2" style={{ gap: 56, alignItems: 'start' }}>
           {/* Left: text */}
           <AnimatedSection>
             <Eyebrow>What lyne. does</Eyebrow>

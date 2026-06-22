@@ -58,8 +58,8 @@ export default function Footer() {
   return (
     <footer className="border-t" style={{ background: 'var(--bg)', borderColor: 'var(--hairline)' }}>
       <div className={WRAP} style={{ padding: '56px 28px 28px' }}>
-        <div className="grid" style={{ gridTemplateColumns: '1.6fr repeat(4, 1fr)', gap: 32 }}>
-          <div>
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-[1.6fr_repeat(4,1fr)]" style={{ gap: 32 }}>
+          <div className="col-span-2 md:col-span-1">
             <p className="font-sans font-bold text-[20px] tracking-[-1px] mb-2" style={{ color: 'var(--text)' }}>
               lyne<span style={{ color: 'var(--accent)' }}>.</span>
             </p>

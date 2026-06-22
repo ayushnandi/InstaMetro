@@ -87,7 +87,7 @@ export default function Hero() {
       </div>
 
       <div className={WRAP} style={{ position: 'relative', padding: '64px 28px 0' }}>
-        <div style={{ display: 'grid', gridTemplateColumns: '1.05fr 0.95fr', gap: 40, alignItems: 'center' }}>
+        <div className="grid grid-cols-1 lg:grid-cols-[1.05fr_0.95fr]" style={{ gap: 40, alignItems: 'center' }}>
           {/* Left: text */}
           <AnimatedSection>
             <div style={{
@@ -129,27 +129,31 @@ export default function Hero() {
           </AnimatedSection>
 
           {/* Right: phone mockups with entry + scroll animations */}
-          <div style={{ position: 'relative', display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: 600 }}>
+          <div className="min-h-[380px] lg:min-h-[600px]" style={{ position: 'relative', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
 
-            {/* Left phone (live) — enters from left, merges behind center on scroll */}
-            <motion.div style={{ position: 'absolute', x: leftFinalX, opacity: leftFinalOp, zIndex: 1 }}>
+            {/* Left phone (live) — desktop only */}
+            <div className="hidden lg:block" style={{ position: 'absolute', zIndex: 1 }}>
+            <motion.div style={{ x: leftFinalX, opacity: leftFinalOp }}>
               <div style={{ transform: 'translateY(36px) rotate(-7deg) scale(0.84)', filter: 'brightness(0.78)' }}>
                 <PhoneShell theme={theme} width={280}>
                   <ScreenLive />
                 </PhoneShell>
               </div>
             </motion.div>
+            </div>
 
-            {/* Right phone (ticket) — enters from right, merges behind center on scroll */}
-            <motion.div style={{ position: 'absolute', x: rightFinalX, opacity: rightFinalOp, zIndex: 1 }}>
+            {/* Right phone (ticket) — desktop only */}
+            <div className="hidden lg:block" style={{ position: 'absolute', zIndex: 1 }}>
+            <motion.div style={{ x: rightFinalX, opacity: rightFinalOp }}>
               <div style={{ transform: 'translateY(36px) rotate(7deg) scale(0.84)', filter: 'brightness(0.78)' }}>
                 <PhoneShell theme={theme} width={280}>
                   <ScreenTicket />
                 </PhoneShell>
               </div>
             </motion.div>
+            </div>
 
-            {/* Center phone (home) — enters from top */}
+            {/* Center phone (home) — enters from top, always visible */}
             <motion.div style={{ position: 'relative', y: centerEntryY, opacity: centerEntryOp, zIndex: 3 }}>
               <PhoneShell theme={theme} width={300}>
                 <ScreenHome />

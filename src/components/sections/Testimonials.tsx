@@ -33,13 +33,13 @@ function Stars() {
 export default function Testimonials() {
   return (
     <section id="reviews" style={{ background: 'var(--bg)' }}>
-      <div className={WRAP} style={{ padding: '90px 28px' }}>
+      <div className={`${WRAP} py-[60px] lg:py-[90px]`} style={{ paddingLeft: 28, paddingRight: 28 }}>
         <AnimatedSection className="text-center mx-auto mb-12" style={{ maxWidth: 600 }}>
           <Eyebrow color="var(--money)" className="justify-center">Loved by early riders</Eyebrow>
           <SectionTitle className="mb-3">From APK users on Android.</SectionTitle>
         </AnimatedSection>
 
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 16 }}>
+        <div className="grid grid-cols-1 md:grid-cols-3" style={{ gap: 16 }}>
           {REVIEWS.map((r, i) => (
             <AnimatedSection key={r.name} delay={i * 0.08}>
               <div style={{ background: 'var(--surface1)', borderRadius: 20, border: '1px solid var(--hairline)', padding: 26, display: 'flex', flexDirection: 'column', height: '100%' }}>

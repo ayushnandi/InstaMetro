@@ -42,7 +42,7 @@ export default function Integrations() {
 
   return (
     <section style={{ background: 'var(--bg2)', borderTop: '1px solid var(--hairline)', borderBottom: '1px solid var(--hairline)' }}>
-      <div className={WRAP} style={{ padding: '90px 28px' }}>
+      <div className={`${WRAP} py-[60px] lg:py-[90px]`} style={{ paddingLeft: 28, paddingRight: 28 }}>
         <AnimatedSection className="mb-12" style={{ maxWidth: 600 }}>
           <Eyebrow color="var(--color-line-aqua)">Powered by</Eyebrow>
           <SectionTitle className="mb-4">Trusted third parties do the heavy lifting.</SectionTitle>
@@ -51,7 +51,7 @@ export default function Integrations() {
           </p>
         </AnimatedSection>
 
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 16 }}>
+        <div className="grid grid-cols-2 lg:grid-cols-4" style={{ gap: 16 }}>
           {PARTIES.map((p, i) => (
             <AnimatedSection key={p.name} delay={i * 0.04}>
               <div style={{ background: 'var(--surface1)', borderRadius: 18, border: '1px solid var(--hairline)', padding: 22 }}>

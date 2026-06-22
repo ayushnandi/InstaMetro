@@ -13,7 +13,7 @@ const CALLOUTS = [
 export default function NetworkMap() {
   return (
     <section id="network" style={{ background: 'var(--bg)' }}>
-      <div className={WRAP} style={{ padding: '90px 28px' }}>
+      <div className={`${WRAP} py-[60px] lg:py-[90px]`} style={{ paddingLeft: 28, paddingRight: 28 }}>
         {/* Header */}
         <AnimatedSection className="text-center mx-auto mb-14" style={{ maxWidth: 640 }}>
           <Eyebrow color="var(--violet-c)" className="justify-center">The network</Eyebrow>
@@ -24,7 +24,7 @@ export default function NetworkMap() {
         </AnimatedSection>
 
         {/* Grid */}
-        <div style={{ display: 'grid', gridTemplateColumns: '1.4fr 1fr', gap: 28, alignItems: 'start' }}>
+        <div className="grid grid-cols-1 lg:grid-cols-[1.4fr_1fr]" style={{ gap: 28, alignItems: 'start' }}>
           {/* Map */}
           <AnimatedSection>
             <div style={{ background: 'var(--surface1)', borderRadius: 24, border: '1px solid var(--hairline)', padding: 24, position: 'relative' }}>
