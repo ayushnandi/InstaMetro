@@ -5,11 +5,14 @@ import ThemeToggle from '@/components/ui/ThemeToggle';
 import { WRAP } from '@/lib/tokens';
 
 const NAV_LINKS = [
-  { label: 'About',    href: '#about' },
-  { label: 'Features', href: '#features' },
-  { label: 'Stations', href: '/stations' },
-  { label: 'Routes',   href: '/routes' },
-  { label: 'FAQ',      href: '/faq' },
+  { label: 'Stations',        href: '/stations' },
+  { label: 'Routes',          href: '/routes' },
+  { label: 'Metro Systems',   href: '/metro-systems' },
+  { label: 'Fare Calculator', href: '/fare-calculator' },
+  { label: 'Blog',            href: '/blog' },
+  { label: 'FAQ',             href: '/faq' },
+  { label: 'About',           href: '#about' },
+  { label: 'Features',        href: '#features' },
 ];
 
 function BrandMark({ size = 28 }: { size?: number }) {
@@ -49,7 +52,7 @@ export default function Nav() {
           </div>
 
           {/* Nav links — desktop only */}
-          <nav className="hidden md:flex items-center" style={{ flex: 1, justifyContent: 'center', gap: 28 }}>
+          <nav className="hidden lg:flex items-center" style={{ flex: 1, justifyContent: 'center', gap: 22, flexWrap: 'wrap' }}>
             {NAV_LINKS.map(({ label, href }) => {
               const linkStyle = {
                 color: 'var(--text-dim)', textDecoration: 'none',
@@ -82,7 +85,7 @@ export default function Nav() {
             </a>
             {/* Hamburger — mobile only */}
             <button
-              className="flex md:hidden items-center justify-center"
+              className="flex lg:hidden items-center justify-center"
               onClick={() => setOpen(o => !o)}
               aria-label="Toggle menu"
               style={{ width: 40, height: 40, borderRadius: 10, background: 'var(--surface1)', border: '1px solid var(--hairline)', color: 'var(--text)', cursor: 'pointer' }}
@@ -104,7 +107,7 @@ export default function Nav() {
       {/* Mobile menu dropdown */}
       {open && (
         <div
-          className="md:hidden sticky top-[70px] z-40 border-b"
+          className="lg:hidden sticky top-[70px] z-40 border-b"
           style={{
             background: 'var(--nav-bg)',
             backdropFilter: 'blur(16px)',

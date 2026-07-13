@@ -7,6 +7,8 @@ import About from '@/components/sections/About';
 import Features from '@/components/sections/Features';
 import NetworkMap from '@/components/sections/NetworkMap';
 import PopularLinks from '@/components/sections/PopularLinks';
+import IndianMetroSystems from '@/components/sections/IndianMetroSystems';
+import LatestMetroNews from '@/components/sections/LatestMetroNews';
 import TechStack from '@/components/sections/TechStack';
 import Integrations from '@/components/sections/Integrations';
 import Testimonials from '@/components/sections/Testimonials';
@@ -38,6 +40,8 @@ export default function Home() {
         <Features />
         <NetworkMap />
         <PopularLinks />
+        <IndianMetroSystems />
+        <LatestMetroNews />
         <TechStack />
         <Integrations />
         <Testimonials />

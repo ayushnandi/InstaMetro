@@ -4,6 +4,28 @@ Strategy and execution log for getting lyne. ranking for Delhi Metro searches, b
 
 Domain: **lynemetro.com** (not yet DNS-live — see "Domain go-live checklist" below).
 
+## v2 — India-wide expansion (blog, other metro cities, fare calculator)
+
+**Expectation-setting, stated plainly**: outranking DMRC, BMRCL, or any other government transit-authority site — or Google Maps/Wikipedia — for bare brand-navigational queries ("delhi metro", "bangalore metro", "namma metro map") is **not a realistic target**. Those queries are won by domain authority, government-entity trust signals, and the direct-answer intent Google already satisfies with Maps/Knowledge Panels. A marketing site with zero backlink history cannot out-rank that. The winnable target — same thesis as v1, now applied India-wide — is the long tail: station/route pages (Delhi, already built), tool-based queries with no good existing calculator ("X to Y metro fare"), informational gaps official sites leave (outdated PDFs, no single clean-answer page — "how many stations does namma metro have"), and freshness (the blog) beating static government pages that don't update.
+
+**What's built this pass:**
+
+| Page | Path | Count | Notes |
+|---|---|---|---|
+| Metro systems index | `/metro-systems` | 1 | Card grid of every operational Indian metro system, `ItemList` JSON-LD |
+| Metro system hub pages | `/metro-systems/[slug]` | 19 | Informational overview per non-Delhi city (Mumbai, Bengaluru, Chennai, Kolkata, Hyderabad, Pune, Kochi, Nagpur, Lucknow, Ahmedabad, Jaipur, Kanpur, Noida, Navi Mumbai, Gurugram, Agra, Indore, Bhopal, Patna) — lines, stations, length, opened year, operator, official link, all WebSearch-verified with a `verifiedAt` date. Explicit in-copy disclaimer that lyne.'s app only supports full routing for Delhi. No fabricated fares/calculators for these cities. `BreadcrumbList` + `Article` JSON-LD (schema.org has no "transit system" type — not invented). Delhi itself is not duplicated here; its card on the index links straight into the real `/stations` system. |
+| Blog / metro news | `/blog` | 1, ISR (hourly) | Live feed from two metro-rail publications' own RSS (`themetrorailguy.com`, `metrorailtoday.com`) — headline, source, date, short excerpt, and an outbound "read more" link. No full article text stored or rendered. Deliberately **not** using Google News' RSS: its feed's own copyright notice restricts use to "personal, non-commercial" feed readers, which a public marketing site isn't — publisher-direct feeds carry no such restriction since it's their own content offered for syndication. `ItemList` JSON-LD (not `Article`/`BlogPosting` per item, since lyne. didn't author the content). |
+| Fare & distance calculator | `/fare-calculator` | 1 | Interactive station-pair picker, Delhi only, reusing the exact same `computeRoute`/fare engine already powering all 210 route pages — no new routing logic. Other cities get a "coming soon, no verified network data" note on their hub page instead of fabricated numbers. |
+| Homepage | `/` | — | Two new sections: "Every metro system in India" (top 9 systems) and "Metro news" (latest 4 headlines), inserted after Popular stations/routes, before the trust-building sections. |
+
+**Data source discipline**: every fact in `src/data/indianMetroSystems.ts` was verified via web search on 2026-07-13 (see each entry's `verifiedAt`) against Wikipedia's city-metro pages and operator sites, cross-checked where sources disagreed (e.g. Mumbai's total length is genuinely volatile — several lines opened within months of each other — so its entry carries a hedge note rather than a falsely precise number). Optional fields (`totalStations`, `totalLengthKm`, `dailyRidership`, line colors) are omitted wherever a confident current figure wasn't available, rather than guessed.
+
+**Nav/Footer**: `Nav.tsx`'s flat link array was extended (Stations, Routes, Metro Systems, Fare Calculator, Blog, FAQ, About, Features — 8 items) rather than adding dropdown UI — flat `<Link>`s are equally crawlable and a smaller, lower-risk change. The breakpoint for the mobile hamburger moved from `md` to `lg` to avoid a dead zone where neither the full nav nor the hamburger would show at medium widths.
+
+**Roadmap / pending verification**: none of the 19 city facts are flagged as unconfirmed as of this writing, but several systems (Mumbai, Bangalore, Indore, Bhopal, Patna, Agra) are mid-expansion — station/length counts will drift within months and should be re-verified periodically rather than trusted indefinitely. Not built this pass: Tier-2 landmark enrichment for non-Delhi cities, backlinks, GSC verification, and the original v1 roadmap items below remain open.
+
+---
+
 ## Strategy summary
 
 - **Search intent** (SEO.txt ch. 2): station names are informational/navigational ("rajiv chowk metro station"), station-to-station queries are commercial/transactional ("rajiv chowk to kashmere gate metro fare"). Page types below map directly to intent.

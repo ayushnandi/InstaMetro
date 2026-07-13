@@ -2,11 +2,14 @@ import Link from 'next/link';
 import { WRAP, LINE_COLORS, LINES } from '@/lib/tokens';
 
 const COL1 = [
-  { label: 'Features',      href: '#features' },
-  { label: 'All stations',  href: '/stations' },
-  { label: 'Popular routes', href: '/routes' },
-  { label: 'Guides',        href: '/guides' },
-  { label: 'FAQ',           href: '/faq' },
+  { label: 'Features',        href: '#features' },
+  { label: 'All stations',    href: '/stations' },
+  { label: 'Popular routes',  href: '/routes' },
+  { label: 'Metro systems',   href: '/metro-systems' },
+  { label: 'Fare calculator', href: '/fare-calculator' },
+  { label: 'Blog',            href: '/blog' },
+  { label: 'Guides',          href: '/guides' },
+  { label: 'FAQ',             href: '/faq' },
 ];
 
 const COL2 = [
