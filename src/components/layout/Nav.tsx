@@ -1,14 +1,15 @@
 'use client';
 import { useState } from 'react';
+import Link from 'next/link';
 import ThemeToggle from '@/components/ui/ThemeToggle';
 import { WRAP } from '@/lib/tokens';
 
 const NAV_LINKS = [
   { label: 'About',    href: '#about' },
   { label: 'Features', href: '#features' },
-  { label: 'Network',  href: '#network' },
-  { label: 'Stack',    href: '#stack' },
-  { label: 'Reviews',  href: '#reviews' },
+  { label: 'Stations', href: '/stations' },
+  { label: 'Routes',   href: '/routes' },
+  { label: 'FAQ',      href: '/faq' },
 ];
 
 function BrandMark({ size = 28 }: { size?: number }) {
@@ -49,18 +50,24 @@ export default function Nav() {
 
           {/* Nav links — desktop only */}
           <nav className="hidden md:flex items-center" style={{ flex: 1, justifyContent: 'center', gap: 28 }}>
-            {NAV_LINKS.map(({ label, href }) => (
-              <a
-                key={href}
-                href={href}
-                className="text-[14px] font-medium transition-colors duration-150"
-                style={{ color: 'var(--text-dim)', textDecoration: 'none' }}
-                onMouseEnter={e => (e.currentTarget.style.color = 'var(--text)')}
-                onMouseLeave={e => (e.currentTarget.style.color = 'var(--text-dim)')}
-              >
-                {label}
-              </a>
-            ))}
+            {NAV_LINKS.map(({ label, href }) => {
+              const linkStyle = {
+                color: 'var(--text-dim)', textDecoration: 'none',
+              };
+              const handlers = {
+                onMouseEnter: (e: React.MouseEvent<HTMLElement>) => (e.currentTarget.style.color = 'var(--text)'),
+                onMouseLeave: (e: React.MouseEvent<HTMLElement>) => (e.currentTarget.style.color = 'var(--text-dim)'),
+              };
+              return href.startsWith('/') ? (
+                <Link key={href} href={href} className="text-[14px] font-medium transition-colors duration-150" style={linkStyle} {...handlers}>
+                  {label}
+                </Link>
+              ) : (
+                <a key={href} href={href} className="text-[14px] font-medium transition-colors duration-150" style={linkStyle} {...handlers}>
+                  {label}
+                </a>
+              );
+            })}
           </nav>
 
           {/* Right: theme toggle + CTA + hamburger */}
@@ -106,19 +113,17 @@ export default function Nav() {
           }}
         >
           <div className={WRAP} style={{ padding: '16px 28px 20px', display: 'flex', flexDirection: 'column', gap: 4 }}>
-            {NAV_LINKS.map(({ label, href }) => (
-              <a
-                key={href}
-                href={href}
-                onClick={() => setOpen(false)}
-                style={{
-                  fontSize: 17, fontWeight: 500, color: 'var(--text)', textDecoration: 'none',
-                  padding: '12px 0', borderBottom: '1px solid var(--hairline)',
-                }}
-              >
-                {label}
-              </a>
-            ))}
+            {NAV_LINKS.map(({ label, href }) => {
+              const style = {
+                fontSize: 17, fontWeight: 500, color: 'var(--text)', textDecoration: 'none',
+                padding: '12px 0', borderBottom: '1px solid var(--hairline)',
+              };
+              return href.startsWith('/') ? (
+                <Link key={href} href={href} onClick={() => setOpen(false)} style={style}>{label}</Link>
+              ) : (
+                <a key={href} href={href} onClick={() => setOpen(false)} style={style}>{label}</a>
+              );
+            })}
             <a
               href="#download"
               onClick={() => setOpen(false)}

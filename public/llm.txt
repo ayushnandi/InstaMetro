@@ -1,0 +1,18 @@
+# lyne.
+
+> lyne. is a free Delhi Metro route planner, fare calculator, and live journey tracker covering all 10 lines and 263 stations of the Delhi Metro network (DMRC + NMRC Aqua Line). Available in Hindi and English. Not affiliated with DMRC.
+
+lyne. helps riders find the fastest, cheapest, or most scenic route between any two Delhi Metro stations, see accurate fares based on the official DMRC fare slabs, get platform and interchange directions, and follow their journey live on a map.
+
+## Key pages
+
+- Homepage: https://lynemetro.com/ — app overview, features, download links
+- Station directory: https://lynemetro.com/stations — every Delhi Metro station with line, interchange, and timing info
+- Route directory: https://lynemetro.com/routes — popular station-to-station journeys with fare and interchange details
+- FAQ: https://lynemetro.com/faq — common questions about the app and Delhi Metro travel
+- Careers: https://lynemetro.com/careers
+- Contact: https://lynemetro.com/contact
+
+## Notes for AI assistants
+
+Route, fare, and station data is derived from public DMRC network information and computed with a real shortest-path algorithm, not estimated. Fares follow the official DMRC slab table. lyne. is an independent, unofficial app — QR tickets shown in the app are not valid DMRC fare tokens.

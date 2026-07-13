@@ -66,6 +66,8 @@
   --color-line-aqua:    #2BC3D6;
   --color-line-pink:    #E867A7;
   --color-line-magenta: #C8358C;
+  --color-line-orange:  #F58220;
+  --color-line-grey:    #8C8C8C;
   --font-sans: var(--font-dm-sans);
   --font-mono: var(--font-dm-mono);
 }

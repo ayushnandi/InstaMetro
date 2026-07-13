@@ -3,14 +3,15 @@ import { WRAP, LINE_COLORS, LINES } from '@/lib/tokens';
 
 const COL1 = [
   { label: 'Features',      href: '#features' },
-  { label: 'Route planner', href: '#features' },
-  { label: 'QR Tickets',    href: '#features' },
-  { label: 'Quick Chips',   href: '#features' },
+  { label: 'All stations',  href: '/stations' },
+  { label: 'Popular routes', href: '/routes' },
+  { label: 'Guides',        href: '/guides' },
+  { label: 'FAQ',           href: '/faq' },
 ];
 
 const COL2 = [
   { label: 'About',          href: '#about' },
-  { label: 'Privacy policy', href: '/privacy-policy' },
+  { label: 'Careers',        href: '/careers' },
   { label: 'Contact',        href: '/contact' },
   { label: 'Play Store',     href: '#' },
 ];

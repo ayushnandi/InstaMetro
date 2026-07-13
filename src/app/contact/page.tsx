@@ -2,10 +2,12 @@ import type { Metadata } from 'next';
 import Nav from '@/components/layout/Nav';
 import Footer from '@/components/layout/Footer';
 import { WRAP } from '@/lib/tokens';
+import { SITE_URL } from '@/lib/seo/config';
 
 export const metadata: Metadata = {
-  title: 'Contact & Support — lyne.',
+  title: 'Contact & Support',
   description: 'Get help with lyne., report a bug, or send us a message.',
+  alternates: { canonical: `${SITE_URL}/contact` },
 };
 
 const FAQS = [

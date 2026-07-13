@@ -2,10 +2,12 @@ import type { Metadata } from 'next';
 import Nav from '@/components/layout/Nav';
 import Footer from '@/components/layout/Footer';
 import { WRAP } from '@/lib/tokens';
+import { SITE_URL } from '@/lib/seo/config';
 
 export const metadata: Metadata = {
-  title: 'Privacy Policy — lyne.',
+  title: 'Privacy Policy',
   description: 'How lyne. collects, uses, and protects your data.',
+  alternates: { canonical: `${SITE_URL}/privacy-policy` },
 };
 
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
