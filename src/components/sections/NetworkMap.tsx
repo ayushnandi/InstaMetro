@@ -52,18 +52,26 @@ export default function NetworkMap() {
                 </div>
               </div>
 
-              {/* Callout cards */}
-              {CALLOUTS.map(c => (
-                <div key={c.title} style={{ background: 'var(--surface1)', borderRadius: 18, border: '1px solid var(--hairline)', padding: 18, display: 'flex', gap: 14, alignItems: 'flex-start' }}>
-                  <div style={{ width: 42, height: 42, borderRadius: 12, background: 'var(--surface3)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, color: 'var(--text-dim)' }}>
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">{c.icon}</svg>
+              {/* Callout list */}
+              <div style={{ border: '1px solid var(--hairline)', borderRadius: 20 }}>
+                {CALLOUTS.map((c, i) => (
+                  <div
+                    key={c.title}
+                    style={{
+                      padding: '18px 20px', display: 'flex', gap: 14, alignItems: 'flex-start',
+                      borderTop: i > 0 ? '1px solid var(--hairline)' : undefined,
+                    }}
+                  >
+                    <div style={{ width: 32, height: 32, borderRadius: 9, flexShrink: 0, color: 'var(--text-mute)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                      <svg width="19" height="19" viewBox="0 0 24 24" fill="none">{c.icon}</svg>
+                    </div>
+                    <div>
+                      <p style={{ fontSize: 14.5, fontWeight: 600, color: 'var(--text)', marginBottom: 3 }}>{c.title}</p>
+                      <p style={{ fontSize: 13, color: 'var(--text-dim)' }}>{c.desc}</p>
+                    </div>
                   </div>
-                  <div>
-                    <p style={{ fontSize: 14.5, fontWeight: 600, color: 'var(--text)', marginBottom: 3 }}>{c.title}</p>
-                    <p style={{ fontSize: 13, color: 'var(--text-dim)' }}>{c.desc}</p>
-                  </div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
           </AnimatedSection>
         </div>

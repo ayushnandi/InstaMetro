@@ -18,9 +18,9 @@ const REVIEWS = [
   },
 ];
 
-function Stars() {
+function Stars({ noMargin = false }: { noMargin?: boolean }) {
   return (
-    <div style={{ display: 'flex', gap: 3, marginBottom: 16 }}>
+    <div style={{ display: 'flex', gap: 3, marginBottom: noMargin ? 0 : 16 }}>
       {Array.from({ length: 5 }).map((_, i) => (
         <svg key={i} width="15" height="15" viewBox="0 0 24 24" fill="var(--amber-c)">
           <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
@@ -34,9 +34,15 @@ export default function Testimonials() {
   return (
     <section id="reviews" style={{ background: 'var(--bg)' }}>
       <div className={`${WRAP} py-[60px] lg:py-[90px]`} style={{ paddingLeft: 28, paddingRight: 28 }}>
-        <AnimatedSection className="text-center mx-auto mb-12" style={{ maxWidth: 600 }}>
+        <AnimatedSection className="text-center mx-auto mb-8" style={{ maxWidth: 600 }}>
           <Eyebrow color="var(--money)" className="justify-center">Loved by early riders</Eyebrow>
           <SectionTitle className="mb-3">From APK users on Android.</SectionTitle>
+        </AnimatedSection>
+
+        <AnimatedSection delay={0.05} className="flex items-center justify-center mx-auto mb-12" style={{ gap: 14 }}>
+          <span style={{ fontFamily: 'DM Mono, monospace', fontSize: 30, fontWeight: 500, color: 'var(--text)', letterSpacing: -1 }}>4.9</span>
+          <Stars noMargin/>
+          <span style={{ fontSize: 13.5, color: 'var(--text-dim)' }}>average, early Android riders</span>
         </AnimatedSection>
 
         <div className="grid grid-cols-1 md:grid-cols-3" style={{ gap: 16 }}>

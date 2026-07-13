@@ -54,10 +54,20 @@ export default function TechStack() {
           </p>
         </AnimatedSection>
 
-        <div className="grid grid-cols-2 lg:grid-cols-4" style={{ gap: 16 }}>
-          {GROUPS.map((g, gi) => (
-            <AnimatedSection key={g.label} delay={gi * 0.06}>
-              <div style={{ background: 'var(--surface1)', borderRadius: 20, border: '1px solid var(--hairline)', padding: 22 }}>
+        <div
+          className="grid grid-cols-2 lg:grid-cols-4"
+          style={{ border: '1px solid var(--hairline)', borderRadius: 20 }}
+        >
+          {GROUPS.map((g, gi) => {
+            const classes = [
+              'border-[color:var(--hairline)]',
+              gi >= 2 ? 'border-t lg:border-t-0' : '',
+              gi === 1 ? 'border-l' : '',
+              gi === 3 ? 'border-l' : '',
+              gi > 0 ? 'lg:border-l' : '',
+            ].join(' ');
+            return (
+              <AnimatedSection key={g.label} delay={gi * 0.06} className={classes} style={{ padding: 22 }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 18 }}>
                   <span style={{ width: 8, height: 8, borderRadius: 99, background: g.color, display: 'inline-block' }}/>
                   <span style={{ fontFamily: 'DM Mono, monospace', fontSize: 12, letterSpacing: 0.5, color: 'var(--text-dim)', textTransform: 'uppercase' }}>{g.label}</span>
@@ -70,9 +80,9 @@ export default function TechStack() {
                     </div>
                   ))}
                 </div>
-              </div>
-            </AnimatedSection>
-          ))}
+              </AnimatedSection>
+            );
+          })}
         </div>
       </div>
     </section>

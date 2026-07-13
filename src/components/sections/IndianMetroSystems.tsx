@@ -20,18 +20,23 @@ export default function IndianMetroSystems() {
           </p>
         </AnimatedSection>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3" style={{ gap: 16, marginBottom: 24 }}>
-          {systems.map(system => {
+        <div className="grid grid-cols-1 sm:grid-cols-2" style={{ border: '1px solid var(--hairline)', borderRadius: 20, overflow: 'hidden', marginBottom: 24 }}>
+          {systems.map((system, i) => {
             const href = system.isDelhi ? '/stations' : `/metro-systems/${system.slug}`;
             const stationCount = system.isDelhi ? STATIONS.length : system.totalStations;
+            const isLeftCol = i % 2 === 0;
+            const classes = [
+              'border-[color:var(--hairline)]',
+              i > 0 ? 'border-t' : '',
+              i === 1 ? 'sm:border-t-0' : '',
+              isLeftCol ? '' : 'sm:border-l',
+            ].join(' ');
             return (
               <Link
                 key={system.slug}
                 href={href}
-                style={{
-                  display: 'block', padding: 18, borderRadius: 14,
-                  background: 'var(--surface1)', border: '1px solid var(--hairline)', textDecoration: 'none',
-                }}
+                style={{ display: 'block', padding: '16px 20px', textDecoration: 'none' }}
+                className={classes}
               >
                 <p style={{ fontSize: 14.5, fontWeight: 700, color: 'var(--text)', marginBottom: 4 }}>{system.fullName}</p>
                 <p className="font-mono" style={{ fontSize: 12, color: 'var(--text-mute)' }}>

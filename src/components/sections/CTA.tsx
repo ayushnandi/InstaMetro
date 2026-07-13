@@ -1,6 +1,7 @@
 import AnimatedSection from '@/components/ui/AnimatedSection';
 import SectionTitle from '@/components/ui/SectionTitle';
 import StoreBadge from '@/components/ui/StoreBadge';
+import DeviceFrame from '@/components/ui/DeviceFrame';
 import { WRAP } from '@/lib/tokens';
 
 export default function CTA() {
@@ -31,9 +32,16 @@ export default function CTA() {
               Free to plan. Book digital QR tickets directly in the app.
             </p>
 
-            <div style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap', position: 'relative' }}>
+            <div style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap', position: 'relative', marginBottom: 8 }}>
               <StoreBadge kind="play"/>
               <StoreBadge kind="apple"/>
+            </div>
+
+            {/* Product peek */}
+            <div className="hidden sm:flex" style={{ justifyContent: 'center', marginTop: 36, position: 'relative' }}>
+              <div style={{ height: 90, overflow: 'hidden', borderRadius: '18px 18px 0 0' }}>
+                <DeviceFrame src="/screens/home-dark.png" alt="lyne. app home screen" width={210} style={{ marginBottom: -300 }}/>
+              </div>
             </div>
           </div>
         </AnimatedSection>

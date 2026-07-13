@@ -54,16 +54,16 @@ export default function PopularLinks() {
             <p className="font-mono" style={{ fontSize: 11, letterSpacing: 1, textTransform: 'uppercase', color: 'var(--text-mute)', marginBottom: 16 }}>
               Popular routes
             </p>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 8, marginBottom: 16 }}>
-              {popularRoutes.map(r => (
+            <div style={{ border: '1px solid var(--hairline)', borderRadius: 16, marginBottom: 16 }}>
+              {popularRoutes.map((r, i) => (
                 <Link
                   key={r.slug}
                   href={`/routes/${r.slug}`}
                   style={{
                     display: 'flex', justifyContent: 'space-between', alignItems: 'center',
                     fontSize: 13.5, color: 'var(--text-dim)', textDecoration: 'none',
-                    padding: '10px 14px', borderRadius: 10, border: '1px solid var(--hairline)',
-                    background: 'var(--surface1)',
+                    padding: '12px 16px',
+                    borderTop: i > 0 ? '1px solid var(--hairline)' : undefined,
                   }}
                 >
                   <span>{r.from.name_en} → {r.to.name_en}</span>

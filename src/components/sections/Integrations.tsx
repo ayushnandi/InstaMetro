@@ -28,8 +28,17 @@ const PARTIES: Party[] = [
 function LogoTile({ party, theme }: { party: Party; theme: string }) {
   const src = typeof party.logo === 'function' ? party.logo(theme) : party.logo;
   return (
-    <div style={{ width: 40, height: 40, borderRadius: 11, overflow: 'hidden', background: 'var(--surface3)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
-      <Image src={src} alt={party.name} width={30} height={30} style={{ objectFit: 'contain' }} unoptimized/>
+    <div
+      title={party.name}
+      style={{
+        display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 10,
+        padding: '18px 10px', flex: '1 1 140px', minWidth: 120,
+      }}
+    >
+      <div style={{ width: 32, height: 32, display: 'flex', alignItems: 'center', justifyContent: 'center', filter: 'grayscale(1)', opacity: 0.75 }}>
+        <Image src={src} alt={party.name} width={28} height={28} style={{ objectFit: 'contain' }} unoptimized/>
+      </div>
+      <p style={{ fontSize: 12, fontWeight: 600, color: 'var(--text-dim)', textAlign: 'center' }}>{party.name}</p>
     </div>
   );
 }
@@ -51,22 +60,16 @@ export default function Integrations() {
           </p>
         </AnimatedSection>
 
-        <div className="grid grid-cols-2 lg:grid-cols-4" style={{ gap: 16 }}>
-          {PARTIES.map((p, i) => (
-            <AnimatedSection key={p.name} delay={i * 0.04}>
-              <div style={{ background: 'var(--surface1)', borderRadius: 18, border: '1px solid var(--hairline)', padding: 22 }}>
-                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 16 }}>
-                  <LogoTile party={p} theme={theme}/>
-                  <span style={{ fontFamily: 'DM Mono, monospace', fontSize: 10, color: 'var(--text-mute)', letterSpacing: 0.5, textTransform: 'uppercase', padding: '3px 8px', background: 'var(--surface2)', borderRadius: 6 }}>
-                    {p.badge}
-                  </span>
-                </div>
-                <p style={{ fontSize: 16, fontWeight: 600, color: 'var(--text)' }}>{p.name}</p>
-                <p style={{ fontSize: 13, color: 'var(--text-dim)', marginTop: 3 }}>{p.desc}</p>
-              </div>
-            </AnimatedSection>
-          ))}
-        </div>
+        <AnimatedSection>
+          <div
+            className="flex flex-wrap"
+            style={{ border: '1px solid var(--hairline)', borderRadius: 20, justifyContent: 'center' }}
+          >
+            {PARTIES.map(p => (
+              <LogoTile key={p.name} party={p} theme={theme}/>
+            ))}
+          </div>
+        </AnimatedSection>
       </div>
     </section>
   );

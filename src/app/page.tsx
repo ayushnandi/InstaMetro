@@ -4,6 +4,7 @@ import Footer from '@/components/layout/Footer';
 import JsonLd from '@/components/seo/JsonLd';
 import Hero from '@/components/sections/Hero';
 import About from '@/components/sections/About';
+import ProblemSolution from '@/components/sections/ProblemSolution';
 import Features from '@/components/sections/Features';
 import NetworkMap from '@/components/sections/NetworkMap';
 import PopularLinks from '@/components/sections/PopularLinks';
@@ -37,6 +38,7 @@ export default function Home() {
       <main>
         <Hero />
         <About />
+        <ProblemSolution />
         <Features />
         <NetworkMap />
         <PopularLinks />

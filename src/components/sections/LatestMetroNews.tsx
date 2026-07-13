@@ -24,22 +24,32 @@ export default async function LatestMetroNews() {
           </p>
         </AnimatedSection>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2" style={{ gap: 12, marginBottom: 24, maxWidth: 900, marginLeft: 'auto', marginRight: 'auto' }}>
-          {news.map(item => (
-            <a
-              key={item.link}
-              href={item.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{
-                display: 'block', padding: 18, borderRadius: 14,
-                background: 'var(--surface1)', border: '1px solid var(--hairline)', textDecoration: 'none',
-              }}
-            >
-              <p className="font-mono" style={{ fontSize: 11, color: 'var(--text-mute)', marginBottom: 6 }}>{formatDate(item.pubDate)} · {item.sourceName}</p>
-              <p style={{ fontSize: 14.5, fontWeight: 600, color: 'var(--text)', lineHeight: 1.4 }}>{item.title}</p>
-            </a>
-          ))}
+        <div
+          className="grid grid-cols-1 sm:grid-cols-2"
+          style={{ border: '1px solid var(--hairline)', borderRadius: 20, overflow: 'hidden', marginBottom: 24, maxWidth: 900, marginLeft: 'auto', marginRight: 'auto' }}
+        >
+          {news.map((item, i) => {
+            const isLeftCol = i % 2 === 0;
+            const classes = [
+              'border-[color:var(--hairline)]',
+              i > 0 ? 'border-t' : '',
+              i === 1 ? 'sm:border-t-0' : '',
+              isLeftCol ? '' : 'sm:border-l',
+            ].join(' ');
+            return (
+              <a
+                key={item.link}
+                href={item.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ display: 'block', padding: '18px 20px', textDecoration: 'none' }}
+                className={classes}
+              >
+                <p className="font-mono" style={{ fontSize: 11, color: 'var(--text-mute)', marginBottom: 6 }}>{formatDate(item.pubDate)} · {item.sourceName}</p>
+                <p style={{ fontSize: 14.5, fontWeight: 600, color: 'var(--text)', lineHeight: 1.4 }}>{item.title}</p>
+              </a>
+            );
+          })}
         </div>
 
         <div className="text-center">
