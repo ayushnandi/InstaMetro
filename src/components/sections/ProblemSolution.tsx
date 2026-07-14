@@ -28,6 +28,7 @@ export default function ProblemSolution() {
                 Other apps
               </p>
               <div style={{
+                width: 220, maxWidth: '100%', margin: '0 auto',
                 borderRadius: 18, overflow: 'hidden', border: '1px solid var(--hairline2)',
                 filter: 'grayscale(0.65) contrast(0.92)', opacity: 0.82,
               }}>
