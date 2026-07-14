@@ -20,7 +20,19 @@ const HERO_FEATURES = [
     title: 'Live journey tracking',
     desc: 'Follow your active trip on an animated route map snapped to real track geometry. Current stop highlighted, upcoming stops and ETA shown the whole way.',
     color: 'var(--amber-c)',
-    shot: '/screens/route-dark.png',
+    shot: '/screens/route-wide-light.png',
+  },
+  {
+    title: 'Hindi & English',
+    desc: 'Switch the whole app to Hindi in one tap, not just a few labels — station names, quick chips, and every screen translate with you.',
+    color: 'var(--violet-c)',
+    shot: '/screens/home-hindi-light.png',
+  },
+  {
+    title: 'Built around your account',
+    desc: 'Trip stats, saved tickets, and theme or language preferences, all in one place. Sign in with email or stay anonymous — your call.',
+    color: '#2BC3D6',
+    shot: '/screens/account-light.png',
   },
 ];
 
@@ -90,11 +102,11 @@ export default function Features() {
           })}
 
           {/* Digital QR tickets — illustrated mockup, no real screenshot available */}
-          <AnimatedSection delay={0.16}>
+          <AnimatedSection delay={0.32}>
             <div className="grid grid-cols-1 lg:grid-cols-2" style={{ gap: 40, alignItems: 'center' }}>
               <div className="lg:order-2">
                 <div style={{ width: 44, height: 44, borderRadius: 13, background: 'var(--money)' + '1F', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: 20, color: 'var(--money)', fontFamily: 'DM Mono, monospace', fontWeight: 600, fontSize: 15 }}>
-                  03
+                  05
                 </div>
                 <h3 style={{ fontFamily: 'DM Sans, sans-serif', fontSize: 27, fontWeight: 600, letterSpacing: -0.7, color: 'var(--text)', margin: '0 0 12px' }}>
                   Digital QR tickets

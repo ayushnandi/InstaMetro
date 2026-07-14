@@ -17,7 +17,7 @@ export default function ProblemSolution() {
       <div className={`${WRAP} py-[60px] lg:py-[90px]`} style={{ paddingLeft: 28, paddingRight: 28 }}>
         <AnimatedSection className="mb-14 max-w-[600px]">
           <Eyebrow color="var(--money)">Why lyne.</Eyebrow>
-          <SectionTitle>General maps apps guess. lyne. knows the metro.</SectionTitle>
+          <SectionTitle>Other apps bury it in clutter. lyne. lays it out clean.</SectionTitle>
         </AnimatedSection>
 
         <div className="grid grid-cols-1 lg:grid-cols-2" style={{ gap: 0, borderRadius: 24, overflow: 'hidden', border: '1px solid var(--hairline)' }}>
@@ -31,10 +31,10 @@ export default function ProblemSolution() {
                 borderRadius: 18, overflow: 'hidden', border: '1px solid var(--hairline2)',
                 filter: 'grayscale(0.65) contrast(0.92)', opacity: 0.82,
               }}>
-                <Image src="/screens/gmaps-compare.png" alt="A generic maps app showing multiple confusing transit options" width={900} height={2000} unoptimized style={{ width: '100%', height: 'auto', display: 'block' }}/>
+                <Image src="/screens/other-app-compare.png" alt="A rival metro app screen cluttered with a disclaimer banner and a plain numbered stop list" width={900} height={2000} unoptimized style={{ width: '100%', height: 'auto', display: 'block' }}/>
               </div>
               <p style={{ fontSize: 14.5, lineHeight: 1.6, color: 'var(--text-dim)', marginTop: 20 }}>
-                Bus, cab, bike and walking options bundled together. No fare, no platform, no sense of which line to actually take.
+                A disclaimer banner up top, cramped stat tiles, and a plain numbered list. The fare and platform are technically in there, just harder to find at a glance.
               </p>
             </div>
           </AnimatedSection>

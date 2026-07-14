@@ -95,3 +95,17 @@ body {
 /* Hide all scrollbars inside phone frame */
 .phone-content *::-webkit-scrollbar { display: none; }
 .phone-content * { scrollbar-width: none; -ms-overflow-style: none; }
+
+/* Live-status ping ring, used by the "LIVE NETWORK" badge */
+@keyframes live-ping {
+  0%   { transform: scale(1);   opacity: 0.55; }
+  75%  { transform: scale(2.6); opacity: 0; }
+  100% { transform: scale(2.6); opacity: 0; }
+}
+.live-ping-ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 99px;
+  background: var(--money);
+  animation: live-ping 1.8s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
